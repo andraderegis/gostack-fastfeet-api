@@ -1,1 +1,1 @@
-# bootcamp10-fastfeet-api
+# gostack-fastfeet-api
