@@ -1,15 +1,6 @@
-import path from 'path';
-
-require('dotenv-safe').config({
-  allowEmptyValues: false,
-  path: path.resolve(
-    __dirname,
-    process.env.NODE_ENV ? `./env/.env.${process.env.NODE_ENV}` : './env/.env'
-  ),
-  example: path.resolve(__dirname, './env/.env.template'),
-});
-
 import { createContainer, asClass, asValue, asFunction } from 'awilix';
+
+import enviroment from './config/Enviroment';
 
 class AwilixDIContainer {
   constructor() {
@@ -19,16 +10,24 @@ class AwilixDIContainer {
 
   init() {
     console.log('init container');
+    console.log('enviroment: ', enviroment.getEnviromentName());
 
     this.container
       .register({
         databaseConfig: asValue(JSON.parse(process.env.DATABASE_CONFIG)),
       })
-      .loadModules(['./models.js'], {
-        resolverOptions: {
-          register: asClass,
-        },
-      });
+      .loadModules(
+        [
+          './src/*.js',
+          './src/app/controllers/*.js',
+          './src/app/middlewares/*.js',
+        ],
+        {
+          resolverOptions: {
+            register: asClass,
+          },
+        }
+      );
   }
 }
 

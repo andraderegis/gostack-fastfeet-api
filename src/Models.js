@@ -4,9 +4,8 @@ import Sequelize from 'sequelize';
 import RecipientModel from './app/models/RecipientModel';
 import UserModel from './app/models/UserModel';
 
-export class Models {
+class Models {
   constructor({ databaseConfig }) {
-    console.log('models');
     this._databaseConfig = databaseConfig;
     this._models = [RecipientModel, UserModel];
     this.init();
@@ -27,3 +26,5 @@ Models[RESOLVER] = {
   lifetime: Lifetime.SINGLETON,
   injectionMode: InjectionMode.PROXY,
 };
+
+export default Models;

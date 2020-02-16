@@ -1,6 +1,6 @@
 import Express from 'express';
-import awilixContainer from './config/AwilixDIContainer';
-import routes from './routes';
+import awilixContainer from './AwilixDIContainer';
+import routes from './Routes';
 
 class App {
   constructor() {
@@ -8,7 +8,6 @@ class App {
 
     // this.middlewares();
     // this.routes();
-    console.info('app.js env:', process.env.NODE_ENV);
   }
 
   middlewares() {
