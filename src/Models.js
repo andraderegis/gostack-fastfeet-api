@@ -12,7 +12,6 @@ class Models {
   }
 
   init() {
-    console.log('databaseConfig:', this._databaseConfig);
     this._models.map(model => model.init(new Sequelize(this._databaseConfig)));
   }
 
