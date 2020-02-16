@@ -1,8 +1,8 @@
-import bcrypt from 'bcryptjs';
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   up: queryInterface => {
-    return QueryInterface.bulkInsert(
+    return queryInterface.bulkInsert(
       'users',
       [
         {
