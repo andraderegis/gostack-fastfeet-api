@@ -1,13 +1,13 @@
 import Express from 'express';
 import awilixContainer from './AwilixDIContainer';
-import routes from './Routes';
+import RecipientController from './app/controllers/impl/RecipientController';
 
 class App {
   constructor() {
     this.server = Express();
 
-    // this.middlewares();
-    // this.routes();
+    this.middlewares();
+    this.routes();
   }
 
   middlewares() {
@@ -15,7 +15,8 @@ class App {
   }
 
   routes() {
-    this.server.use(routes);
+    const routes = awilixContainer.resolve('routes');
+    this.server.use(routes.routes());
   }
 }
 

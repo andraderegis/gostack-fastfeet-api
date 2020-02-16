@@ -14,12 +14,13 @@ class AwilixDIContainer {
 
     this.container
       .register({
+        container: asFunction(() => this.container),
         databaseConfig: asValue(JSON.parse(process.env.DATABASE_CONFIG)),
       })
       .loadModules(
         [
           './src/*.js',
-          './src/app/controllers/*.js',
+          './src/app/controllers/**/*.js',
           './src/app/middlewares/*.js',
         ],
         {
