@@ -1,5 +1,7 @@
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 
+import { AWILIX_RESOVE_NAMES } from '../../../constants';
+
 import BaseController from '../base-controller';
 
 /**
@@ -44,7 +46,7 @@ class RecipientController extends BaseController {
 }
 
 RecipientController[RESOLVER] = {
-  name: 'recipientController',
+  name: AWILIX_RESOVE_NAMES.CONTROLLERS.RECIPIENT_CONTROLLER,
   lifetime: Lifetime.SINGLETON,
   injectionMode: InjectionMode.PROXY,
 };

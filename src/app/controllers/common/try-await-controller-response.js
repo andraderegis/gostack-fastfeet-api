@@ -1,5 +1,7 @@
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 
+import { AWILIX_RESOVE_NAMES } from '../../../constants';
+
 class TryAwaitControllerResponse {
   constructor() {}
 
@@ -107,7 +109,7 @@ class TryAwaitControllerResponse {
 }
 
 TryAwaitControllerResponse[RESOLVER] = {
-  name: 'tryAwaitControllerResponse',
+  name: AWILIX_RESOVE_NAMES.COMMON.TRY_AWAIT_CONTROLLER_RESPONSE,
   lifetime: Lifetime.SINGLETON,
   injectionMode: InjectionMode.PROXY,
 };

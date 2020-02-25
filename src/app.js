@@ -20,4 +20,7 @@ class App {
   }
 }
 
-export default new App().server;
+export default {
+  server: new App().server,
+  container: awilixContainer,
+};

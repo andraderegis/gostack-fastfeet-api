@@ -1,6 +1,8 @@
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 import Sequelize from 'sequelize';
 
+import { AWILIX_RESOVE_NAMES } from './constants';
+
 import RecipientModel from './app/models/recipient-model';
 import UserModel from './app/models/user-model';
 
@@ -41,7 +43,7 @@ class Models {
 }
 
 Models[RESOLVER] = {
-  name: 'models',
+  name: AWILIX_RESOVE_NAMES.MODELS,
   lifetime: Lifetime.SINGLETON,
   injectionMode: InjectionMode.PROXY,
 };

@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 
+import { AWILIX_RESOVE_NAMES } from './constants';
+
 /**
  * Symbols as private methods
  */
@@ -39,7 +41,7 @@ class Routes {
 }
 
 Routes[RESOLVER] = {
-  name: 'routes',
+  name: AWILIX_RESOVE_NAMES.ROUTES,
   lifetime: Lifetime.SINGLETON,
   injectionMode: InjectionMode.PROXY,
 };
