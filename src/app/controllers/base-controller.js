@@ -1,3 +1,5 @@
+import { AWILIX_RESOVE_NAMES } from '../../constants';
+
 class BaseController {
   constructor({ container, model }) {
     this._container = container;
@@ -7,7 +9,7 @@ class BaseController {
      * @type {TryAwaitControllerResponse}
      */
     this._tryAwaitControllerResponse = this._container.resolve(
-      'tryAwaitControllerResponse'
+      AWILIX_RESOVE_NAMES.COMMON.TRY_AWAIT_CONTROLLER_RESPONSE
     );
   }
 

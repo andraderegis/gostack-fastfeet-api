@@ -1,6 +1,5 @@
 import Express from 'express';
 import awilixContainer from './awilix-di-container';
-import RecipientController from './app/controllers/impl/recipient-controller';
 
 class App {
   constructor() {

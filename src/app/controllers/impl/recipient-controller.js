@@ -1,6 +1,6 @@
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 
-import { AWILIX_RESOVE_NAMES } from '../../../constants';
+import { AWILIX_RESOVE_NAMES, MODELS_NAMES } from '../../../constants';
 
 import BaseController from '../base-controller';
 
@@ -14,13 +14,14 @@ class RecipientController extends BaseController {
   /**
    *Creates an instance of RecipientController.
    * @param {AwilixContainer} container
-   * @param {Models} models
    * @memberof RecipientController
    */
-  constructor({ container, models }) {
+  constructor({ container }) {
     super({
       container,
-      model: models.getModel('Recipient'),
+      model: container
+        .resolve(AWILIX_RESOVE_NAMES.MODELS)
+        .getModel(MODELS_NAMES.RECIPIENT),
     });
   }
 
@@ -46,7 +47,7 @@ class RecipientController extends BaseController {
 }
 
 RecipientController[RESOLVER] = {
-  name: AWILIX_RESOVE_NAMES.CONTROLLERS.RECIPIENT_CONTROLLER,
+  name: AWILIX_RESOVE_NAMES.CONTROLLERS.RECIPIENT,
   lifetime: Lifetime.SINGLETON,
   injectionMode: InjectionMode.PROXY,
 };
