@@ -1,8 +1,8 @@
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 import Sequelize from 'sequelize';
 
-import RecipientModel from './app/models/RecipientModel';
-import UserModel from './app/models/UserModel';
+import RecipientModel from './app/models/recipient-model';
+import UserModel from './app/models/user-model';
 
 /**
  * Private methods as symbols

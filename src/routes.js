@@ -14,11 +14,18 @@ class Routes {
     this[recipientRoutes]();
   }
 
+  /**
+   *
+   * @returns {Router}
+   */
   routes() {
     return this._routes;
   }
 
   [recipientRoutes]() {
+    /**
+     * @type {RecipientController}
+     */
     const RecipientController = this._container.resolve('recipientController');
 
     this._routes.get('/recipients', (req, res, next) =>

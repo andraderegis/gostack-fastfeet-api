@@ -1,6 +1,6 @@
 const path = require('path');
 
-class Enviroment {
+class Environment {
   constructor() {
     this.init();
   }
@@ -21,9 +21,9 @@ class Enviroment {
   /**
    * @returns {string}
    */
-  getEnviromentName() {
+  getEnvironmentName() {
     return process.env.NODE_ENV;
   }
 }
 
-export default new Enviroment();
+export default new Environment();

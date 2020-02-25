@@ -1,11 +1,19 @@
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';
 
-import BaseController from '../BaseController';
+import BaseController from '../base-controller';
 
+/**
+ *
+ *
+ * @class RecipientController
+ * @extends {BaseController}
+ */
 class RecipientController extends BaseController {
   /**
+   *Creates an instance of RecipientController.
    * @param {AwilixContainer} container
    * @param {Models} models
+   * @memberof RecipientController
    */
   constructor({ container, models }) {
     super({
@@ -14,6 +22,15 @@ class RecipientController extends BaseController {
     });
   }
 
+  /**
+   *
+   *
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
+   * @returns
+   * @memberof RecipientController
+   */
   async list(req, res, next) {
     return this._tryAwaitControllerResponse.tryAwaitProcessResult({
       processResult: {

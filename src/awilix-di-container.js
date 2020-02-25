@@ -1,6 +1,6 @@
 import { createContainer, asClass, asValue, asFunction } from 'awilix';
 
-import enviroment from './config/Enviroment';
+import environment from './config/environment';
 
 class AwilixDIContainer {
   constructor() {
@@ -9,13 +9,15 @@ class AwilixDIContainer {
   }
 
   init() {
-    console.log('init container');
-    console.log('enviroment: ', enviroment.getEnviromentName());
+    console.log('Init Awilix DI Container');
+    console.log('Environment: ', environment.getEnvironmentName());
 
     this.container
       .register({
         container: asFunction(() => this.container),
         databaseConfig: asValue(JSON.parse(process.env.DATABASE_CONFIG)),
+        port: asValue(process.env.PORT),
+        env: asValue(environment.getEnvironmentName()),
       })
       .loadModules(
         [
